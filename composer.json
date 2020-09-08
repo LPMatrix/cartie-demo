@@ -15,7 +15,7 @@
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.2",
-        "lpmatrix/cartie": "@dev"
+        "lpmatrix/cartie": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
@@ -49,7 +49,7 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": false,
+    "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
@@ -61,5 +61,11 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
+    },
+    "repositories": [
+    {
+      "type": "path",
+      "url": "../cartie" 
     }
+  ]
 }

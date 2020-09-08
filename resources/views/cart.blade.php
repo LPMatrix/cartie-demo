@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Cart <p class="float-right">{{Cart::count()}}</p></div>
+                <div class="card-header">Cart <p class="float-right">4</p></div>
 
                 <div class="card-body">
                     @if (count(Cart::content()))
@@ -31,7 +31,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <p class="float-right">{{Cart::total()}}</p>
+                    <p class="float-right">600</p>
                     @else
                     <div class="alert alert-info text-center m-0" role="alert">
                         Your Cart is <b>empty</b>.

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "40e359d8e3f3ddc4a3d831e0c4ce6050",
+    "content-hash": "387e9e60ee628fe3de2d9d98141a3e25",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1172,6 +1172,71 @@
             ],
             "description": "Mime-type detection for Flysystem",
             "time": "2020-08-09T10:34:01+00:00"
+        },
+        {
+            "name": "lpmatrix/cartie",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../cartie",
+                "reference": "a5e586b4f0ba375e680259d756d905f305103439"
+            },
+            "require": {
+                "illuminate/support": "^5.0|^6.0|^7.0",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": ">=3.8",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Lpmatrix\\Cartie\\CartieServiceProvider"
+                    ],
+                    "aliases": {
+                        "Cartie": "Lpmatrix\\Cartie\\CartieFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lpmatrix\\Cartie\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Lpmatrix\\Cartie\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sanusi Mubaraq",
+                    "email": "mubaraqsanusi908@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A clean shopping cart implementation for Laravel",
+            "homepage": "https://github.com/lpmatrix/cartie",
+            "keywords": [
+                "cart",
+                "cartie",
+                "laravel",
+                "lpmatrix",
+                "shoppingcart"
+            ]
         },
         {
             "name": "monolog/monolog",
@@ -6025,7 +6090,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "lpmatrix/cartie": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

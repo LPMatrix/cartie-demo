@@ -3,24 +3,28 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+        <div class="col-md-12">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
 
-                    <div class="btn-group d-flex" role="group" aria-label="Add product to cart...">
-                        <a href="{{ url('add-product',  ['id' => 1]) }}" class="btn btn-secondary">Product 1</a>
-                        <a href="{{ url('add-product',  ['id' => 2]) }}" class="btn btn-secondary">Product 2</a>
-                        <a href="{{ url('add-product',  ['id' => 3]) }}" class="btn btn-secondary">Product 3</a>
-                        <a href="{{ url('add-product',  ['id' => 4]) }}" class="btn btn-secondary">Product 4</a>
-                        <a href="{{ url('add-product',  ['id' => 5]) }}" class="btn btn-secondary">Product 5</a>
+            <div class="btn-group d-flex" role="group" aria-label="Add product to cart...">
+                <div class="row">
+                @forelse ($products as $product)
+                    <div class="col-md-3">
+                        <a href="{{ url('add-product',  ['id' => $product->id]) }}" class="card mb-2">
+                            <div class="card-body">
+                                <p>{{ $product->name }}</p>
+                                <p>N{{ $product->price }}</p>
+                            </div>
+                        </a>
                     </div>
+                @empty
+                    <p>No Products</p>
+                @endforelse
                 </div>
             </div>
         </div>

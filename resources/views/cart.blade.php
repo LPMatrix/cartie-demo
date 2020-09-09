@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Cart <p class="float-right">4</p></div>
+                <div class="card-header">Cart <p class="float-right">{{ Cartie::totalItems() }}</p></div>
 
                 <div class="card-body">
-                    @if (count(Cart::content()))
+                    @if (count(Cartie::contents()))
                     <table class="table">
                         <thead>
                             <tr>
@@ -20,18 +20,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (Cart::content() as $item)
+                            @foreach (Cartie::contents() as $item)
                             <tr>
-                                <td>{{ $item->name }}</td>
-                                <td>{{ $item->price }}</td>
-                                <td>{{ $item->qty }}</td>
-                                <td>{{ $item->total }}</td>
-                                <td><a href="{{url('remove-cart')}}/{{$item->rowId}}">Remove</a></td>
+                                <td>{{-- $item->name --}}</td>
+                                <td>{{-- $item->price --}}</td>
+                                <td>{{-- $item->qty --}}</td>
+                                <td>{{-- $item->total --}}</td>
+                                <td><a href="{{-- url('remove-cart')}}/{{$item->id --}}">Remove</a></td>
+                                <td>{{ print_r(Cartie::contents()) }}</td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    <p class="float-right">600</p>
+                    <p class="float-right">N{{Cartie::totalPrice()}}</p>
                     @else
                     <div class="alert alert-info text-center m-0" role="alert">
                         Your Cart is <b>empty</b>.

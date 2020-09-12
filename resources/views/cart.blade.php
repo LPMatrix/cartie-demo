@@ -8,7 +8,6 @@
                 <div class="card-header">Cart <p class="float-right">{{ Cartie::totalItems() }}</p></div>
 
                 <div class="card-body">
-                    @if (count(Cartie::contents()))
                     <table class="table">
                         <thead>
                             <tr>
@@ -20,24 +19,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (Cartie::contents() as $item)
+                            @forelse (Cartie::contents() as $product)
                             <tr>
-                                <td>{{-- $item->name --}}</td>
-                                <td>{{-- $item->price --}}</td>
-                                <td>{{-- $item->qty --}}</td>
-                                <td>{{-- $item->total --}}</td>
-                                <td><a href="{{-- url('remove-cart')}}/{{$item->id --}}">Remove</a></td>
-                                <td>{{ print_r(Cartie::contents()) }}</td>
+                                <td>{{-- $product->name --}}</td>
+                                <td>{{-- $product->price --}}</td>
+                                <td>{{-- $product->qty --}}</td>
+                                <td>{{-- $product->total --}}</td>
+                                <td><a href="{{-- url('remove-cart')}}/{{$product->id --}}">Remove</a></td>
                             </tr>
-                            @endforeach
+                            @empty
+                            <div class="alert alert-info text-center m-0" role="alert">
+                                Your Cart is <b>empty</b>.
+                            </div>
+                            @endforelse
+                            {{ Cartie::contents() }}
                         </tbody>
                     </table>
                     <p class="float-right">N{{Cartie::totalPrice()}}</p>
-                    @else
-                    <div class="alert alert-info text-center m-0" role="alert">
-                        Your Cart is <b>empty</b>.
-                    </div>
-                    @endif
                 </div>
             </div>
         </div>

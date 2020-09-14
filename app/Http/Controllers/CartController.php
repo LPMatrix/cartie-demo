@@ -27,8 +27,8 @@ class CartController extends Controller
         return redirect()->route('cart')->withSuccess('Product has been successfully added to the Cart.');
     }
 
-    public function remove($id){
-        \Cartie::remove($id);
+    public function remove($rowid){
+        \Cartie::remove($rowid);
         return redirect()->back()->withSuccess('Product has been successfully removed from the Cart.');
     }
 

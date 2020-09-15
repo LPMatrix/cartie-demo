@@ -1179,7 +1179,7 @@
             "dist": {
                 "type": "path",
                 "url": "../cartie",
-                "reference": "a5e586b4f0ba375e680259d756d905f305103439"
+                "reference": "87d87f8a9f5b618af1f5cea5db06c594e8612aee"
             },
             "require": {
                 "illuminate/support": "^5.0|^6.0|^7.0",
@@ -1196,7 +1196,7 @@
                         "Lpmatrix\\Cartie\\CartieServiceProvider"
                     ],
                     "aliases": {
-                        "Cartie": "Lpmatrix\\Cartie\\CartieFacade"
+                        "Cartie": "Lpmatrix\\Cartie\\Facades\\Cartie"
                     }
                 }
             },

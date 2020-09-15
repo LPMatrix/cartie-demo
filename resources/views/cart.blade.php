@@ -21,18 +21,17 @@
                         <tbody>
                             @forelse (Cartie::contents() as $product)
                             <tr>
-                                <td>{{-- $product->name --}}</td>
-                                <td>{{-- $product->price --}}</td>
-                                <td>{{-- $product->qty --}}</td>
-                                <td>{{-- $product->total --}}</td>
-                                <td><a href="{{-- url('remove-cart')}}/{{$product->id --}}">Remove</a></td>
+                                <td>{{ $product["name"] }}</td>
+                                <td>{{ $product["price"] }}</td>
+                                <td>{{ $product["quantity"] }}</td>
+                                <td>{{ $product["subtotal"] }}</td>
+                                <td><a href="{{ url('remove-item')}}/{{ $product['rowid'] }}">Remove</a></td>
                             </tr>
                             @empty
                             <div class="alert alert-info text-center m-0" role="alert">
                                 Your Cart is <b>empty</b>.
                             </div>
                             @endforelse
-                            {{ Cartie::contents() }}
                         </tbody>
                     </table>
                     <p class="float-right">N{{Cartie::totalPrice()}}</p>

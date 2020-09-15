@@ -25,4 +25,4 @@ Route::get('/cart', 'CartController@index')->name('cart');
 
 Route::get('/add-product/{id}', 'CartController@add');
 
-Route::get('/remove-product/{id}', 'CartController@remove');
+Route::get('/remove-item/{id}', 'CartController@remove');

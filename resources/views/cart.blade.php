@@ -15,6 +15,7 @@
                                 <th scope="col">Price</th>
                                 <th scope="col">Qty</th>
                                 <th scope="col">Total</th>
+                                <th scope="col">Discount</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -25,6 +26,7 @@
                                 <td>{{ $product["price"] }}</td>
                                 <td>{{ $product["quantity"] }}</td>
                                 <td>{{ $product["subtotal"] }}</td>
+                                <td>{{ isset($product['discount']) ? $product['discount'] : 0 }}%</td>
                                 <td><a href="{{ url('remove-item')}}/{{ $product['rowid'] }}">Remove</a></td>
                             </tr>
                             @empty

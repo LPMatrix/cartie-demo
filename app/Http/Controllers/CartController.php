@@ -21,7 +21,7 @@ class CartController extends Controller
     public function add(int $id) {
         /* Add the product */
         $product = DB::table('products')->find($id);
-        \Cartie::add(['id'=>$id, 'name'=>$product->name, 'price'=>$product->price, 'quantity'=>1]);
+        \Cartie::add(['id' => $id, 'name' => $product->name, 'price' => $product->price, 'quantity' => 1], $product->discount);
 
         /* Redirect to prevend re-adding on refreshing */
         return redirect()->route('cart')->withSuccess('Product has been successfully added to the Cart.');
